@@ -1,46 +1,112 @@
-# Getting Started with Create React App
+# Garden Design System
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Component library and design token reference for Garden's UI.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Quick Access (no setup needed)
 
-### `npm start`
+Browse the latest Storybook on Chromatic:
+**https://www.chromatic.com/library?appId=69dcc0f1bdbb1fdfdcd3cf2c**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+---
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Run Locally
 
-### `npm test`
+```bash
+# 1. Clone the repo
+git clone https://github.com/prakashKJ/garden-design-system.git
+cd garden-design-system
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+# 2. Install dependencies
+npm install
 
-### `npm run build`
+# 3. Start Storybook
+npm run storybook
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Opens at **http://localhost:6006/**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## What's Inside
 
-### `npm run eject`
+### Components
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+| Component | Path | Variants |
+|-----------|------|----------|
+| **GardenButton** | `src/components/GardenButton/` | primary, ghost, icon / sm, md, lg / disabled |
+| **SearchBar** | `src/components/SearchBar/` | empty, with value |
+| **AssetSelect** | `src/components/AssetSelect/` | L1 (BTC), L2 (WBTC) |
+| **Stats** | `src/components/Stats/` | with/without info icon |
+| **AssetValue** | `src/components/AssetValue/` | active, inactive |
+| **TabSwitch** | `src/components/TabSwitch/` | tab selection states |
+| **ChainRow** | `src/components/ChainRow/` | row of chain icons |
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Design Tokens
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+All tokens live in **`src/styles/garden.css`** as CSS custom properties. Components reference these variables — never hardcoded hex values.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+| Category | CSS Variable Prefix | Examples |
+|----------|-------------------|----------|
+| Surfaces | `--color-garden-surface-*` | `card` (70%), `nested` (50%), `subtle` (30%) |
+| Brand | `--color-garden-brand*` | `brand`, `brand-hover`, `brand-purple`, `brand-secondary` |
+| Text | `--color-garden-text-*` | `text-primary`, `text-secondary` |
+| Status | `--color-garden-*` | `positive`, `negative` |
+| Spacing | `--spacing-garden-*` | 1 (4px) through 20 (80px) |
+| Radius | `--radius-garden-*` | `sm` (6px), `inner` (12px), `outer` (16px), `full` (9999px) |
+| Type sizes | `--text-*` | `display-lg` (56px) down to `caption` (11px) |
+| Blur | `--backdrop-blur-garden` | 150px |
 
-## Learn More
+Dark mode overrides are in the same file under `[data-theme="dark"]`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Storybook Documentation Pages
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Tokens / Colors** — All semantic tokens with light & dark swatches
+- **Tokens / Typography** — Type scale with live previews
+- **Tokens / Spacing & Radii** — Visual spacing scale + radius demos
+- **Guide / Cardinal Rules** — The 8 rules every contributor must follow
+
+---
+
+## Using Components in Your Project
+
+```tsx
+// 1. Copy src/styles/garden.css into your project and import it
+import './styles/garden.css';
+
+// 2. Import a component
+import { GardenButton } from './components/GardenButton/GardenButton';
+
+// 3. Use it
+<GardenButton variant="primary" size="lg">Swap</GardenButton>
+```
+
+---
+
+## Cardinal Rules (short version)
+
+1. **No borders** — use opacity layers + blur instead
+2. **No solid white** on containers — use `surface-card` / `surface-nested` / `surface-subtle`
+3. **No hardcoded hex** — always use CSS variable tokens
+4. **No box-shadow** — depth = opacity layering + blur
+5. **`border-none`** on every container and interactive element
+6. **Font weights: 430 / 570** — never 400 or 500
+7. **Ask before creating new components** — if it's not in this Storybook, flag it with `// TODO: needs Garden DS component`
+
+---
+
+## Deploy Updates to Chromatic
+
+```bash
+npx chromatic --project-token=chpt_7688cc9ee23943c
+```
+
+---
+
+## Figma Source
+
+```
+File: GARDEN_Product
+Key:  0VNUXR0fhlJ3mA6OlndZNq
+```
