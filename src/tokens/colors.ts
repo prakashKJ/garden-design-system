@@ -1,53 +1,25 @@
+/**
+ * Garden semantic color tokens.
+ * These reference CSS custom properties from garden.css.
+ * NEVER hardcode hex in components — always use these tokens.
+ */
 export const colors = {
-  action: {
-    primary: '#FC79C1',
-    primaryHover: '#FF65BA',
-    secondary: '#473C75',
-    secondaryHover: '#402E8E',
-    tertiary: '#FFC4E4',
-  },
-  text: {
-    primary: '#473C75',
-    secondary: '#908AAD',
-    white: '#FFFFFF',
-  },
-  bg: {
-    base: '#E4EBF2',
-    white: '#FFFFFF',
-    overlay70: 'rgba(255, 255, 255, 0.7)',
-    overlay50: 'rgba(255, 255, 255, 0.5)',
-    overlay30: 'rgba(255, 255, 255, 0.3)',
-    overlay10: 'rgba(255, 255, 255, 0.1)',
-  },
-  status: {
-    success: '#1DC089',
-    error: '#FF005C',
-  },
-} as const;
+  brand: 'var(--color-garden-brand)',
+  brandHover: 'var(--color-garden-brand-hover)',
+  brandSecondary: 'var(--color-garden-brand-secondary)',
+  brandPurple: 'var(--color-garden-brand-purple)',
+  brandPurpleHover: 'var(--color-garden-brand-purple-hover)',
 
-export const darkColors = {
-  action: {
-    primary: '#FC79C1',
-    primaryHover: '#FF65BA',
-    secondary: '#473C75',
-    secondaryHover: '#402E8E',
-    tertiary: '#FFC4E4',
-  },
-  text: {
-    primary: '#FFFFFF',
-    secondary: 'rgba(255, 255, 255, 0.5)',
-    white: '#FFFFFF',
-  },
-  bg: {
-    base: '#09090C',
-    white: '#22242B',
-    overlay70: 'rgba(34, 36, 43, 0.7)',
-    overlay50: 'rgba(34, 36, 43, 0.5)',
-    overlay30: 'rgba(34, 36, 43, 0.3)',
-    overlay10: 'rgba(34, 36, 43, 0.1)',
-  },
-  status: {
-    success: '#1DC089',
-    error: '#FF005C',
-  },
+  textPrimary: 'var(--color-garden-text-primary)',
+  textSecondary: 'var(--color-garden-text-secondary)',
+
+  surfaceCard: 'var(--color-garden-surface-card)',
+  surfaceNested: 'var(--color-garden-surface-nested)',
+  surfaceSubtle: 'var(--color-garden-surface-subtle)',
+
+  bgBase: 'var(--color-garden-bg-base)',
+  bgDarkSoft: 'var(--color-garden-bg-dark-soft)',
+
+  positive: 'var(--color-garden-positive)',
+  negative: 'var(--color-garden-negative)',
 } as const;

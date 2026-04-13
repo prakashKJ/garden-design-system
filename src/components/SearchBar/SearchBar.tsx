@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors } from '../../tokens';
+import { colors, radius, spacing, font } from '../../tokens';
 
 interface SearchBarProps {
   placeholder?: string;
@@ -19,10 +19,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 40,
-        background: colors.bg.overlay50,
-        borderRadius: 12,
-        padding: '0 12px 0 16px',
+        background: colors.surfaceNested,
+        borderRadius: radius.inner,
+        padding: `0 ${spacing[3]} 0 ${spacing[4]}`,
         width: 400,
+        border: 'none',
+        outline: 'none',
       }}
     >
       <input
@@ -34,17 +36,16 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           border: 'none',
           background: 'transparent',
           outline: 'none',
-          fontFamily: "'Haffer', sans-serif",
-          fontWeight: 400,
-          fontSize: 14,
-          lineHeight: '20px',
-          color: value ? colors.text.primary : colors.text.secondary,
+          fontFamily: font.family,
+          fontWeight: font.weight.regular,
+          fontSize: font.size.bodyMd,
+          color: value ? colors.textPrimary : colors.textSecondary,
           flex: 1,
         }}
       />
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <circle cx="7" cy="7" r="5.5" stroke={colors.text.secondary} strokeWidth="1.5" />
-        <line x1="11" y1="11" x2="14" y2="14" stroke={colors.text.secondary} strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="7" cy="7" r="5.5" stroke="var(--color-garden-text-secondary)" strokeWidth="1.5" />
+        <line x1="11" y1="11" x2="14" y2="14" stroke="var(--color-garden-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     </div>
   );

@@ -1,0 +1,80 @@
+/* Garden Design System — CSS Custom Properties
+   Single source of truth for all design tokens.
+   Import this file in Storybook preview and app entry. */
+
+:root {
+  /* ── Surfaces (semi-transparent whites — NEVER use solid white) ── */
+  --color-garden-surface-card:    rgba(255, 255, 255, 0.70);  /* bg-70 — cards, panels, toasts */
+  --color-garden-surface-nested:  rgba(255, 255, 255, 0.50);  /* bg-50 — inputs, nested cards */
+  --color-garden-surface-subtle:  rgba(255, 255, 255, 0.30);  /* bg-30 — metadata, list rows, ghost btn */
+
+  /* ── Brand & actions ── */
+  --color-garden-brand:              #FC79C1;  /* primary CTA */
+  --color-garden-brand-hover:        #FF65BA;
+  --color-garden-brand-secondary:    #FFC4E4;  /* tertiary action */
+  --color-garden-brand-purple:       #473C75;  /* secondary action */
+  --color-garden-brand-purple-hover: #402E8E;
+
+  /* ── Text ── */
+  --color-garden-text-primary:    #473C75;
+  --color-garden-text-secondary:  #908AAD;
+
+  /* ── Status (use as TEXT color, never as background pill) ── */
+  --color-garden-positive:  #1DC089;
+  --color-garden-negative:  #FF005C;
+
+  /* ── Backgrounds ── */
+  --color-garden-bg-base:      #E4EBF2;
+  --color-garden-bg-dark-soft: #22242B;
+
+  /* ── Typography ── */
+  --font-garden: "Haffer", system-ui, -apple-system, sans-serif;
+
+  --font-weight-regular:  430;
+  --font-weight-medium:   570;
+  --font-weight-semibold: 600;
+  --font-weight-bold:     700;
+
+  --text-display-lg: 56px;
+  --text-display-md: 32px;
+  --text-heading-lg: 24px;
+  --text-heading-md: 18px;
+  --text-body-lg:    16px;
+  --text-body-md:    14px;
+  --text-body-sm:    12px;
+  --text-caption:    11px;
+
+  /* ── Spacing ── */
+  --spacing-garden-1:  4px;
+  --spacing-garden-2:  8px;
+  --spacing-garden-3:  12px;
+  --spacing-garden-4:  16px;
+  --spacing-garden-5:  20px;
+  --spacing-garden-6:  24px;
+  --spacing-garden-8:  32px;
+  --spacing-garden-10: 40px;
+  --spacing-garden-12: 48px;
+  --spacing-garden-16: 64px;
+  --spacing-garden-20: 80px;
+
+  /* ── Radius ── */
+  --radius-garden-sm:    6px;
+  --radius-garden-inner: 12px;   /* buttons, inputs, list rows */
+  --radius-garden-outer: 16px;   /* cards, panels, toasts */
+  --radius-garden-full:  9999px;
+
+  /* ── Backdrop blur ── */
+  --backdrop-blur-garden: 150px;
+}
+
+/* ── Dark mode overrides ── */
+[data-theme="dark"] {
+  --color-garden-surface-card:    rgba(34, 36, 43, 0.70);
+  --color-garden-surface-nested:  rgba(34, 36, 43, 0.50);
+  --color-garden-surface-subtle:  rgba(34, 36, 43, 0.30);
+
+  --color-garden-text-primary:   #FFFFFF;
+  --color-garden-text-secondary: rgba(255, 255, 255, 0.50);
+
+  --color-garden-bg-base: #09090C;
+}

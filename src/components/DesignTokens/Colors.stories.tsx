@@ -1,60 +1,61 @@
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import React from 'react';
-import { colors, darkColors } from '../../tokens';
 
-const ColorSwatch: React.FC<{ name: string; light: string; dark: string }> = ({ name, light, dark }) => (
+const Swatch: React.FC<{ name: string; cssVar: string; lightVal: string; darkVal: string }> = ({ name, cssVar, lightVal, darkVal }) => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
-    <span style={{ fontFamily: "'Haffer', sans-serif", fontWeight: 500, fontSize: 13, color: '#473C75', width: 140 }}>{name}</span>
-    <div style={{ display: 'flex', gap: 8, alignItems: 'center', width: 200 }}>
-      <div style={{ width: 24, height: 24, background: light, borderRadius: 6, border: '1px solid #E4EBF2' }} />
-      <span style={{ fontFamily: "'Haffer', sans-serif", fontSize: 11, color: '#908AAD' }}>{light}</span>
-    </div>
-    <div style={{ display: 'flex', gap: 8, alignItems: 'center', width: 200 }}>
-      <div style={{ width: 24, height: 24, background: dark, borderRadius: 6, border: '1px solid #555' }} />
-      <span style={{ fontFamily: "'Haffer', sans-serif", fontSize: 11, color: '#908AAD' }}>{dark}</span>
-    </div>
+    <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 13, color: 'var(--color-garden-text-primary)', width: 160 }}>{name}</span>
+    <div style={{ width: 24, height: 24, background: `var(${cssVar})`, borderRadius: 6, border: '1px solid rgba(0,0,0,0.08)', flexShrink: 0 }} />
+    <span style={{ fontFamily: 'var(--font-garden)', fontSize: 11, color: 'var(--color-garden-text-secondary)', width: 160 }}>{lightVal}</span>
+    <span style={{ fontFamily: 'var(--font-garden)', fontSize: 11, color: 'var(--color-garden-text-secondary)' }}>{darkVal}</span>
   </div>
 );
 
-const SectionHeader: React.FC<{ title: string }> = ({ title }) => (
-  <div style={{ marginBottom: 12, marginTop: 24 }}>
-    <span style={{ fontFamily: "'Haffer', sans-serif", fontWeight: 500, fontSize: 12, color: '#908AAD', textTransform: 'uppercase', letterSpacing: 1.5 }}>{title}</span>
-    <div style={{ display: 'flex', padding: '6px 0', borderBottom: '1px solid #E4EBF2', marginTop: 8 }}>
-      <span style={{ fontFamily: "'Haffer', sans-serif", fontWeight: 500, fontSize: 11, color: '#908AAD', width: 140 }}>Token</span>
-      <span style={{ fontFamily: "'Haffer', sans-serif", fontWeight: 500, fontSize: 11, color: '#908AAD', width: 200 }}>Light</span>
-      <span style={{ fontFamily: "'Haffer', sans-serif", fontWeight: 500, fontSize: 11, color: '#908AAD', width: 200 }}>Dark</span>
+const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title, children }) => (
+  <div style={{ marginBottom: 28 }}>
+    <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-garden-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 12 }}>{title}</div>
+    <div style={{ display: 'flex', marginBottom: 8, gap: 12 }}>
+      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 11, color: 'var(--color-garden-text-secondary)', width: 160 }}>Token</span>
+      <span style={{ width: 24 }} />
+      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 11, color: 'var(--color-garden-text-secondary)', width: 160 }}>Light</span>
+      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 11, color: 'var(--color-garden-text-secondary)' }}>Dark</span>
     </div>
+    {children}
   </div>
 );
 
-const ColorTokens = () => (
-  <div style={{ padding: 32, fontFamily: "'Haffer', sans-serif" }}>
-    <h2 style={{ fontFamily: "'Satoshi', sans-serif", fontWeight: 700, fontSize: 28, color: '#473C75', margin: '0 0 8px 0' }}>Color Tokens</h2>
-    <p style={{ fontSize: 14, color: '#908AAD', margin: '0 0 16px 0' }}>Semantic tokens with light & dark mode</p>
+const AllTokens = () => (
+  <div style={{ padding: 32 }}>
+    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-display-md)', color: 'var(--color-garden-text-primary)', margin: '0 0 8px' }}>Color Tokens</h2>
+    <p style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-body-md)', color: 'var(--color-garden-text-secondary)', margin: '0 0 32px' }}>Semantic tokens — use these CSS variables in components. Never hardcode hex.</p>
 
-    <SectionHeader title="Colors / Action" />
-    <ColorSwatch name="Primary" light={colors.action.primary} dark={darkColors.action.primary} />
-    <ColorSwatch name="Primary Hover" light={colors.action.primaryHover} dark={darkColors.action.primaryHover} />
-    <ColorSwatch name="Secondary" light={colors.action.secondary} dark={darkColors.action.secondary} />
-    <ColorSwatch name="Secondary Hover" light={colors.action.secondaryHover} dark={darkColors.action.secondaryHover} />
-    <ColorSwatch name="Tertiary" light={colors.action.tertiary} dark={darkColors.action.tertiary} />
+    <Section title="Surfaces">
+      <Swatch name="surface-card (bg-70)" cssVar="--color-garden-surface-card" lightVal="rgba(255,255,255,0.70)" darkVal="rgba(34,36,43,0.70)" />
+      <Swatch name="surface-nested (bg-50)" cssVar="--color-garden-surface-nested" lightVal="rgba(255,255,255,0.50)" darkVal="rgba(34,36,43,0.50)" />
+      <Swatch name="surface-subtle (bg-30)" cssVar="--color-garden-surface-subtle" lightVal="rgba(255,255,255,0.30)" darkVal="rgba(34,36,43,0.30)" />
+    </Section>
 
-    <SectionHeader title="Colors / Text" />
-    <ColorSwatch name="Primary" light={colors.text.primary} dark={darkColors.text.primary} />
-    <ColorSwatch name="Secondary" light={colors.text.secondary} dark={darkColors.text.secondary} />
-    <ColorSwatch name="White text" light={colors.text.white} dark={darkColors.text.white} />
+    <Section title="Brand & Actions">
+      <Swatch name="brand (primary CTA)" cssVar="--color-garden-brand" lightVal="#FC79C1" darkVal="#FC79C1" />
+      <Swatch name="brand-hover" cssVar="--color-garden-brand-hover" lightVal="#FF65BA" darkVal="#FF65BA" />
+      <Swatch name="brand-purple (secondary)" cssVar="--color-garden-brand-purple" lightVal="#473C75" darkVal="#473C75" />
+      <Swatch name="brand-purple-hover" cssVar="--color-garden-brand-purple-hover" lightVal="#402E8E" darkVal="#402E8E" />
+      <Swatch name="brand-secondary (tertiary)" cssVar="--color-garden-brand-secondary" lightVal="#FFC4E4" darkVal="#FFC4E4" />
+    </Section>
 
-    <SectionHeader title="Colors / bg" />
-    <ColorSwatch name="Base" light={colors.bg.base} dark={darkColors.bg.base} />
-    <ColorSwatch name="White" light={colors.bg.white} dark={darkColors.bg.white} />
-    <ColorSwatch name="70% Overlay" light={colors.bg.overlay70} dark={darkColors.bg.overlay70} />
-    <ColorSwatch name="50% Overlay" light={colors.bg.overlay50} dark={darkColors.bg.overlay50} />
-    <ColorSwatch name="30% Overlay" light={colors.bg.overlay30} dark={darkColors.bg.overlay30} />
-    <ColorSwatch name="10% Overlay" light={colors.bg.overlay10} dark={darkColors.bg.overlay10} />
+    <Section title="Text">
+      <Swatch name="text-primary" cssVar="--color-garden-text-primary" lightVal="#473C75" darkVal="#FFFFFF" />
+      <Swatch name="text-secondary" cssVar="--color-garden-text-secondary" lightVal="#908AAD" darkVal="rgba(255,255,255,0.5)" />
+    </Section>
 
-    <SectionHeader title="Colors / Status" />
-    <ColorSwatch name="Success" light={colors.status.success} dark={darkColors.status.success} />
-    <ColorSwatch name="Error" light={colors.status.error} dark={darkColors.status.error} />
+    <Section title="Status (text only — never as bg pill)">
+      <Swatch name="positive" cssVar="--color-garden-positive" lightVal="#1DC089" darkVal="#1DC089" />
+      <Swatch name="negative" cssVar="--color-garden-negative" lightVal="#FF005C" darkVal="#FF005C" />
+    </Section>
+
+    <Section title="Backgrounds">
+      <Swatch name="bg-base" cssVar="--color-garden-bg-base" lightVal="#E4EBF2" darkVal="#09090C" />
+      <Swatch name="bg-dark-soft" cssVar="--color-garden-bg-dark-soft" lightVal="#22242B" darkVal="#22242B" />
+    </Section>
   </div>
 );
 
@@ -66,6 +67,4 @@ const meta: Meta = {
 export default meta;
 type Story = StoryObj;
 
-export const AllColors: Story = {
-  render: () => <ColorTokens />,
-};
+export const SemanticTokens: Story = { render: () => <AllTokens /> };
