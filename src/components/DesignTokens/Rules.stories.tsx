@@ -41,7 +41,7 @@ const CardinalRules = () => (
     <Rule num={5} text="Font stack is Haffer → system defaults. Weights: 430 (regular), 570 (medium). Never use 400 or 500." />
     <Rule num={6} text="NEVER use box-shadow. Depth = opacity layering + blur." />
     <Rule num={7} text="ALWAYS include border-none explicitly on every container and interactive element." />
-    <Rule num={8} text="ALWAYS use components from the inventory. If one doesn't exist, flag it — do not invent a parallel version." />
+    <Rule num={8} text="ALWAYS use existing components from this Storybook. If a component doesn't exist yet, ASK the user before creating it — add '// TODO: needs Garden DS component' and flag it. NEVER invent a parallel version." />
 
     <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-heading-lg)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Examples</h3>
 
@@ -55,7 +55,7 @@ const CardinalRules = () => (
     />
     <Example
       wrong='<span className="bg-green-100 text-green-700 px-2 rounded">OK</span>'
-      right='<StatusBadge variant="success">OK</StatusBadge>'
+      right='<span className="text-garden-positive text-body-sm">OK</span>'
     />
     <Example
       wrong='style={{ color: "#473C75" }}'
