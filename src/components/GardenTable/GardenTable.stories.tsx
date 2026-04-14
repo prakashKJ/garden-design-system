@@ -65,7 +65,7 @@ export const TransactionTable: Story = {
 
 /* ── Table (Small) — Staking table ── */
 const smallCols: TableColumn[] = [
-  { key: 'staked', header: 'Staked SEED' },
+  { key: 'staked', header: 'Staked SEED', width: 69 },
   { key: 'rewards', header: 'Rewards', width: 66 },
   { key: 'votes', header: 'Votes', width: 64 },
   { key: 'apy', header: 'APY', width: 64 },
