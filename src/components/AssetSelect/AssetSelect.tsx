@@ -16,7 +16,7 @@ export const AssetSelect: React.FC<AssetSelectProps> = ({
 
   return (
     <div style={{ display: 'flex', gap: 'var(--spacing-garden-2)', alignItems: 'center' }}>
-      <span style={{ fontFamily: font.family, fontWeight: font.weight.regular, fontSize: font.size.headingLg, color: colors.textPrimary }}>
+      <span style={{ fontFamily: font.family, fontWeight: font.weight.regular, fontSize: font.size.h2, color: colors.textPrimary }}>
         {label}
       </span>
       <div style={{ display: 'flex', gap: 'var(--spacing-garden-1)', alignItems: 'center' }}>

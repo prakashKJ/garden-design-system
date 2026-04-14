@@ -41,7 +41,7 @@ export const TabSwitch: React.FC<TabSwitchProps> = ({
             background: i === activeIndex ? colors.surfaceCard : 'transparent',
             fontFamily: font.family,
             fontWeight: font.weight.medium,
-            fontSize: font.size.bodyMd,
+            fontSize: font.size.h4,
             color: colors.textPrimary,
             transition: 'background-color 0.15s ease',
             boxShadow: 'none',

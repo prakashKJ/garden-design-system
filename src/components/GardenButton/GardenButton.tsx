@@ -14,9 +14,9 @@ interface GardenButtonProps {
 }
 
 const sizeMap: Record<ButtonSize, { height: number; fontSize: string; padding: string }> = {
-  sm: { height: 36, fontSize: font.size.bodySm, padding: `0 ${spacing[3]}` },
-  md: { height: 40, fontSize: font.size.bodyMd, padding: `0 ${spacing[4]}` },
-  lg: { height: 48, fontSize: font.size.bodyLg, padding: `0 ${spacing[4]}` },
+  sm: { height: 36, fontSize: font.size.h5, padding: `0 ${spacing[3]}` },
+  md: { height: 40, fontSize: font.size.h4, padding: `0 ${spacing[4]}` },
+  lg: { height: 48, fontSize: font.size.h3, padding: `0 ${spacing[4]}` },
 };
 
 export const GardenButton: React.FC<GardenButtonProps> = ({

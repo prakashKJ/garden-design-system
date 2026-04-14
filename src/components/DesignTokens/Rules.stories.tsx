@@ -5,10 +5,10 @@ const Rule: React.FC<{ num: number; text: string }> = ({ num, text }) => (
   <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>
     <span style={{
       fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)',
-      fontSize: 'var(--text-body-md)', color: 'var(--color-garden-negative)',
+      fontSize: 'var(--text-h4)', color: 'var(--color-garden-negative)',
       width: 24, flexShrink: 0,
     }}>{num}.</span>
-    <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-regular)', fontSize: 'var(--text-body-md)', color: 'var(--color-garden-text-primary)' }}>
+    <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-regular)', fontSize: 'var(--text-h4)', color: 'var(--color-garden-text-primary)' }}>
       {text}
     </span>
   </div>
@@ -17,11 +17,11 @@ const Rule: React.FC<{ num: number; text: string }> = ({ num, text }) => (
 const Example: React.FC<{ wrong: string; right: string }> = ({ wrong, right }) => (
   <div style={{ display: 'flex', gap: 24, marginBottom: 16 }}>
     <div style={{ flex: 1 }}>
-      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-body-sm)', color: 'var(--color-garden-negative)', fontWeight: 'var(--font-weight-medium)' }}>Wrong</span>
+      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h5)', color: 'var(--color-garden-negative)', fontWeight: 'var(--font-weight-medium)' }}>Wrong</span>
       <code style={{ display: 'block', fontFamily: 'monospace', fontSize: 12, color: 'var(--color-garden-text-secondary)', marginTop: 4, background: 'var(--color-garden-surface-subtle)', padding: 'var(--spacing-garden-2)', borderRadius: 'var(--radius-garden-sm)', border: 'none' }}>{wrong}</code>
     </div>
     <div style={{ flex: 1 }}>
-      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-body-sm)', color: 'var(--color-garden-positive)', fontWeight: 'var(--font-weight-medium)' }}>Right</span>
+      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h5)', color: 'var(--color-garden-positive)', fontWeight: 'var(--font-weight-medium)' }}>Right</span>
       <code style={{ display: 'block', fontFamily: 'monospace', fontSize: 12, color: 'var(--color-garden-text-primary)', marginTop: 4, background: 'var(--color-garden-surface-subtle)', padding: 'var(--spacing-garden-2)', borderRadius: 'var(--radius-garden-sm)', border: 'none' }}>{right}</code>
     </div>
   </div>
@@ -29,8 +29,8 @@ const Example: React.FC<{ wrong: string; right: string }> = ({ wrong, right }) =
 
 const CardinalRules = () => (
   <div style={{ padding: 32, maxWidth: 720 }}>
-    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-display-md)', color: 'var(--color-garden-text-primary)', margin: '0 0 8px' }}>Cardinal Rules</h2>
-    <p style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-body-md)', color: 'var(--color-garden-text-secondary)', margin: '0 0 32px' }}>
+    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h1)', color: 'var(--color-garden-text-primary)', margin: '0 0 8px' }}>Cardinal Rules</h2>
+    <p style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h4)', color: 'var(--color-garden-text-secondary)', margin: '0 0 32px' }}>
       These override any default instinct. If a rule conflicts with a habit, follow the rule.
     </p>
 
@@ -42,8 +42,9 @@ const CardinalRules = () => (
     <Rule num={6} text="NEVER use box-shadow. Depth = opacity layering + blur." />
     <Rule num={7} text="ALWAYS include border-none explicitly on every container and interactive element." />
     <Rule num={8} text="ALWAYS use existing components from this Storybook. If a component doesn't exist yet, ASK the user before creating it — add '// TODO: needs Garden DS component' and flag it. NEVER invent a parallel version." />
+    <Rule num={9} text="Cards/stacks MUST have minimum padding of 12px (spacing-3) or 16px (spacing-4). Smaller cards use 12px, standard cards use 16px. Padding can increase for larger containers but never go below 12px." />
 
-    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-heading-lg)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Examples</h3>
+    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h2)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Examples</h3>
 
     <Example
       wrong='bg-white border border-gray-200 rounded-xl shadow-md'
@@ -62,7 +63,7 @@ const CardinalRules = () => (
       right='color: var(--color-garden-text-primary)'
     />
 
-    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-heading-lg)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Layer Stacking Model</h3>
+    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h2)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Layer Stacking Model</h3>
     <pre style={{ fontFamily: 'monospace', fontSize: 13, color: 'var(--color-garden-text-primary)', background: 'var(--color-garden-surface-subtle)', padding: 'var(--spacing-garden-4)', borderRadius: 'var(--radius-garden-inner)', border: 'none', lineHeight: 1.8 }}>
 {`Page gradient (lavender → grey → mint)
   └─ Card: surface-card (70%) + blur-garden

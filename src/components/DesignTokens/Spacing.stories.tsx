@@ -24,7 +24,7 @@ const radii = [
 
 const SpacingAndRadii = () => (
   <div style={{ padding: 32 }}>
-    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-display-md)', color: 'var(--color-garden-text-primary)', margin: '0 0 32px' }}>Spacing & Radii</h2>
+    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h1)', color: 'var(--color-garden-text-primary)', margin: '0 0 32px' }}>Spacing & Radii</h2>
 
     <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-garden-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16 }}>Spacing Scale</div>
     {spacingScale.map(({ name, size }) => (

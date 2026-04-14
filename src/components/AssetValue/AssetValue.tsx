@@ -15,7 +15,7 @@ export const AssetValue: React.FC<AssetValueProps> = ({
       <span style={{
         fontFamily: font.family,
         fontWeight: font.weight.regular,
-        fontSize: font.size.bodyLg,
+        fontSize: font.size.h3,
         color: active ? colors.textPrimary : colors.textSecondary,
       }}>
         {value}

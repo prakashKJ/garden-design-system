@@ -38,7 +38,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           outline: 'none',
           fontFamily: font.family,
           fontWeight: font.weight.regular,
-          fontSize: font.size.bodyMd,
+          fontSize: font.size.h4,
           color: value ? colors.textPrimary : colors.textSecondary,
           flex: 1,
         }}

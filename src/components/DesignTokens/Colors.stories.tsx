@@ -25,8 +25,8 @@ const Section: React.FC<{ title: string; children: React.ReactNode }> = ({ title
 
 const AllTokens = () => (
   <div style={{ padding: 32 }}>
-    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-display-md)', color: 'var(--color-garden-text-primary)', margin: '0 0 8px' }}>Color Tokens</h2>
-    <p style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-body-md)', color: 'var(--color-garden-text-secondary)', margin: '0 0 32px' }}>Semantic tokens — use these CSS variables in components. Never hardcode hex.</p>
+    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h1)', color: 'var(--color-garden-text-primary)', margin: '0 0 8px' }}>Color Tokens</h2>
+    <p style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h4)', color: 'var(--color-garden-text-secondary)', margin: '0 0 32px' }}>Semantic tokens — use these CSS variables in components. Never hardcode hex.</p>
 
     <Section title="Surfaces">
       <Swatch name="surface-card (bg-70)" cssVar="--color-garden-surface-card" lightVal="rgba(255,255,255,0.70)" darkVal="rgba(34,36,43,0.70)" />

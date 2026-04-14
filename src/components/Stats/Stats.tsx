@@ -15,7 +15,7 @@ export const Stats: React.FC<StatsProps> = ({
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-garden-1)' }}>
       <div style={{ display: 'flex', gap: 'var(--spacing-garden-1)', alignItems: 'center' }}>
-        <span style={{ fontFamily: font.family, fontWeight: font.weight.medium, fontSize: font.size.bodySm, color: colors.textPrimary }}>
+        <span style={{ fontFamily: font.family, fontWeight: font.weight.medium, fontSize: font.size.h5, color: colors.textPrimary }}>
           {label}
         </span>
         {showInfoIcon && (
@@ -25,7 +25,7 @@ export const Stats: React.FC<StatsProps> = ({
           </svg>
         )}
       </div>
-      <span style={{ fontFamily: font.family, fontWeight: font.weight.regular, fontSize: font.size.headingLg, color: colors.textPrimary }}>
+      <span style={{ fontFamily: font.family, fontWeight: font.weight.regular, fontSize: font.size.h2, color: colors.textPrimary }}>
         {value}
       </span>
     </div>
