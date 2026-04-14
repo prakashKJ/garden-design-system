@@ -15,7 +15,7 @@ const styles = [
   { name: 'H6 Regular', size: '10px', lineHeight: '12px', weight: 'var(--font-weight-regular)', cssSize: 'var(--text-h6)', cssLh: 'var(--line-height-h6)' },
 ];
 
-const dividers = [0, 1, 3, 5, 7, 9]; // indices after which to draw a line
+const dividers = [0, 2, 4, 6, 8]; // divider after H1, then after each H2-H6 pair
 
 const TypographyScale = () => (
   <div style={{ padding: 32 }}>
