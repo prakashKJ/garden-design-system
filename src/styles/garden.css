@@ -71,6 +71,22 @@
   --backdrop-blur-garden: 150px;
 }
 
+/* ── Typography utility classes ── */
+.garden-h1-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h1); line-height: var(--line-height-h1); color: var(--color-garden-text-primary); }
+.garden-h2-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h2); line-height: var(--line-height-h2); color: var(--color-garden-text-primary); }
+.garden-h2-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h2); line-height: var(--line-height-h2); color: var(--color-garden-text-primary); }
+.garden-h3-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h3); line-height: var(--line-height-h3); color: var(--color-garden-text-primary); }
+.garden-h3-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h3); line-height: var(--line-height-h3); color: var(--color-garden-text-primary); }
+.garden-h4-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h4); line-height: var(--line-height-h4); color: var(--color-garden-text-primary); }
+.garden-h4-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h4); line-height: var(--line-height-h4); color: var(--color-garden-text-primary); }
+.garden-h5-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h5); line-height: var(--line-height-h5); color: var(--color-garden-text-primary); }
+.garden-h5-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h5); line-height: var(--line-height-h5); color: var(--color-garden-text-primary); }
+.garden-h6-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h6); line-height: var(--line-height-h6); color: var(--color-garden-text-primary); }
+.garden-h6-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h6); line-height: var(--line-height-h6); color: var(--color-garden-text-primary); }
+
+.garden-text-secondary { color: var(--color-garden-text-secondary); }
+.garden-text-white { color: white; }
+
 /* ── Dark mode overrides ── */
 [data-theme="dark"] {
   --color-garden-surface-card:    rgba(34, 36, 43, 0.70);

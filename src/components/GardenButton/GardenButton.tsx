@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, radius, spacing, font } from '../../tokens';
+import '../../styles/garden.css';
 
 export type ButtonVariant = 'primary' | 'ghost' | 'icon';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -13,10 +13,10 @@ interface GardenButtonProps {
   fullWidth?: boolean;
 }
 
-const sizeMap: Record<ButtonSize, { height: number; fontSize: string; padding: string }> = {
-  sm: { height: 36, fontSize: font.size.h5, padding: `0 ${spacing[3]}` },
-  md: { height: 40, fontSize: font.size.h4, padding: `0 ${spacing[4]}` },
-  lg: { height: 48, fontSize: font.size.h3, padding: `0 ${spacing[4]}` },
+const sizeMap: Record<ButtonSize, { height: number; textClass: string; padding: string }> = {
+  sm: { height: 36, textClass: 'garden-h5-medium', padding: '0 var(--spacing-garden-3)' },
+  md: { height: 40, textClass: 'garden-h4-medium', padding: '0 var(--spacing-garden-4)' },
+  lg: { height: 48, textClass: 'garden-h3-medium', padding: '0 var(--spacing-garden-4)' },
 };
 
 export const GardenButton: React.FC<GardenButtonProps> = ({
@@ -30,47 +30,15 @@ export const GardenButton: React.FC<GardenButtonProps> = ({
   const [hovered, setHovered] = React.useState(false);
   const s = sizeMap[size];
 
-  const getStyles = (): React.CSSProperties => {
-    const base: React.CSSProperties = {
-      display: 'inline-flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: variant === 'icon' ? s.height : s.height,
-      width: variant === 'icon' ? s.height : fullWidth ? '100%' : undefined,
-      minWidth: variant === 'icon' ? undefined : 120,
-      padding: variant === 'icon' ? '0' : s.padding,
-      borderRadius: variant === 'icon' ? radius.full : radius.inner,
-      border: 'none',
-      outline: 'none',
-      cursor: disabled ? 'not-allowed' : 'pointer',
-      opacity: disabled ? 0.5 : 1,
-      fontFamily: font.family,
-      fontWeight: font.weight.medium,
-      fontSize: s.fontSize,
-      transition: 'background-color 0.15s ease',
-      boxShadow: 'none',
-    };
+  const getBg = () => {
+    if (variant === 'primary') return hovered && !disabled ? 'var(--color-garden-brand-hover)' : 'var(--color-garden-brand)';
+    if (variant === 'ghost') return 'var(--color-garden-surface-subtle)';
+    return 'var(--color-garden-surface-nested)';
+  };
 
-    switch (variant) {
-      case 'primary':
-        return {
-          ...base,
-          backgroundColor: hovered && !disabled ? colors.brandHover : colors.brand,
-          color: '#FFFFFF',
-        };
-      case 'ghost':
-        return {
-          ...base,
-          backgroundColor: colors.surfaceSubtle,
-          color: colors.textPrimary,
-        };
-      case 'icon':
-        return {
-          ...base,
-          backgroundColor: colors.surfaceNested,
-          color: colors.textPrimary,
-        };
-    }
+  const getColor = () => {
+    if (variant === 'primary') return 'white';
+    return 'var(--color-garden-text-primary)';
   };
 
   return (
@@ -78,7 +46,25 @@ export const GardenButton: React.FC<GardenButtonProps> = ({
       onClick={!disabled ? onClick : undefined}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      style={getStyles()}
+      className={s.textClass}
+      style={{
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: variant === 'icon' ? s.height : s.height,
+        width: variant === 'icon' ? s.height : fullWidth ? '100%' : undefined,
+        minWidth: variant === 'icon' ? undefined : 120,
+        padding: variant === 'icon' ? '0' : s.padding,
+        borderRadius: variant === 'icon' ? 'var(--radius-garden-full)' : 'var(--radius-garden-inner)',
+        border: 'none',
+        outline: 'none',
+        cursor: disabled ? 'not-allowed' : 'pointer',
+        opacity: disabled ? 0.5 : 1,
+        backgroundColor: getBg(),
+        color: getColor(),
+        transition: 'background-color 0.15s ease',
+        boxShadow: 'none',
+      }}
     >
       {children}
     </button>
