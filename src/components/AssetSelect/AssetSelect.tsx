@@ -1,5 +1,6 @@
 import React from 'react';
 import '../../styles/garden.css';
+import { ChainLogo } from '../ChainLogo/ChainLogo';
 
 type Network = 'L1' | 'L2';
 
@@ -21,11 +22,11 @@ export const AssetSelect: React.FC<AssetSelectProps> = ({
       </span>
       <div style={{ display: 'flex', gap: 'var(--spacing-garden-1)', alignItems: 'center' }}>
         {network === 'L1' ? (
-          <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-chain-btc)', flexShrink: 0 }} />
+          <ChainLogo chain="btc" size={20} />
         ) : (
           <div style={{ display: 'flex', position: 'relative', width: 38, height: 20 }}>
-            <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-chain-btc)', position: 'absolute', left: 0 }} />
-            <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-chain-eth)', position: 'absolute', left: 18 }} />
+            <div style={{ position: 'absolute', left: 0 }}><ChainLogo chain="btc" size={20} /></div>
+            <div style={{ position: 'absolute', left: 18 }}><ChainLogo chain="eth" size={20} /></div>
           </div>
         )}
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">

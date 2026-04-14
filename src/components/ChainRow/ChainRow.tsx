@@ -1,30 +1,19 @@
 import React from 'react';
 import '../../styles/garden.css';
-
-interface Chain {
-  name: string;
-  color: string;
-}
+import { ChainLogo, Chain } from '../ChainLogo/ChainLogo';
 
 interface ChainRowProps {
   chains?: Chain[];
 }
 
-const defaultChains: Chain[] = [
-  { name: 'BTC', color: 'var(--color-chain-btc)' },
-  { name: 'ETH', color: 'var(--color-chain-eth)' },
-  { name: 'Stacks', color: 'var(--color-chain-stacks)' },
-  { name: 'Arbitrum', color: 'var(--color-chain-arbitrum)' },
-  { name: 'Sei', color: 'var(--color-chain-sei)' },
-  { name: 'Base', color: 'var(--color-chain-base)' },
-];
+const defaultChains: Chain[] = ['btc', 'eth', 'sol'];
 
 export const ChainRow: React.FC<ChainRowProps> = ({ chains = defaultChains }) => {
   return (
     <div style={{ display: 'flex', gap: 'var(--spacing-garden-2)' }}>
       {chains.map((chain) => (
         <div
-          key={chain.name}
+          key={chain}
           style={{
             display: 'flex',
             alignItems: 'center',
@@ -37,7 +26,7 @@ export const ChainRow: React.FC<ChainRowProps> = ({ chains = defaultChains }) =>
             boxShadow: 'none',
           }}
         >
-          <div style={{ width: 24, height: 24, borderRadius: '50%', background: chain.color }} />
+          <ChainLogo chain={chain} size={24} />
         </div>
       ))}
     </div>
