@@ -19,6 +19,12 @@ const sizeMap: Record<ButtonSize, { height: number; textClass: string; padding: 
   lg: { height: 48, textClass: 'garden-h3-medium', padding: '0 var(--spacing-garden-4)' },
 };
 
+const variantStyles: Record<ButtonVariant, { bg: string; bgHover: string; color: string }> = {
+  primary: { bg: 'var(--color-garden-brand)', bgHover: 'var(--color-garden-brand-hover)', color: 'white' },
+  ghost: { bg: 'var(--color-garden-surface-subtle)', bgHover: 'var(--color-garden-surface-nested)', color: 'var(--color-garden-text-primary)' },
+  icon: { bg: 'var(--color-garden-surface-nested)', bgHover: 'var(--color-garden-surface-card)', color: 'var(--color-garden-text-primary)' },
+};
+
 export const GardenButton: React.FC<GardenButtonProps> = ({
   children,
   variant = 'primary',
@@ -29,40 +35,30 @@ export const GardenButton: React.FC<GardenButtonProps> = ({
 }) => {
   const [hovered, setHovered] = React.useState(false);
   const s = sizeMap[size];
-
-  const getBg = () => {
-    if (variant === 'primary') return hovered && !disabled ? 'var(--color-garden-brand-hover)' : 'var(--color-garden-brand)';
-    if (variant === 'ghost') return 'var(--color-garden-surface-subtle)';
-    return 'var(--color-garden-surface-nested)';
-  };
-
-  const getColor = () => {
-    if (variant === 'primary') return 'white';
-    return 'var(--color-garden-text-primary)';
-  };
+  const v = variantStyles[variant];
 
   return (
     <button
-      onClick={!disabled ? onClick : undefined}
+      onClick={onClick}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
+      disabled={disabled}
       className={s.textClass}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        height: variant === 'icon' ? s.height : s.height,
+        height: s.height,
         width: variant === 'icon' ? s.height : fullWidth ? '100%' : undefined,
         minWidth: variant === 'icon' ? undefined : 120,
         padding: variant === 'icon' ? '0' : s.padding,
         borderRadius: variant === 'icon' ? 'var(--radius-garden-full)' : 'var(--radius-garden-inner)',
         border: 'none',
-        outline: 'none',
         cursor: disabled ? 'not-allowed' : 'pointer',
         opacity: disabled ? 0.5 : 1,
-        backgroundColor: getBg(),
-        color: getColor(),
-        transition: 'background-color 0.15s ease',
+        backgroundColor: hovered && !disabled ? v.bgHover : v.bg,
+        color: v.color,
+        transition: 'background-color 0.15s ease, opacity 0.15s ease',
         boxShadow: 'none',
       }}
     >

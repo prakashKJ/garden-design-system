@@ -10,10 +10,10 @@ interface PopupModalProps {
 }
 
 /**
- * PopupModal — Fixed width 440px. Frosted glass surface (bg-30 + blur).
+ * PopupModal — max-width 440px, responsive. Frosted glass surface (bg-30 + blur).
  * Title uses H5 Medium. Body uses H4 Regular.
  * As text content decreases, the modal shrinks vertically.
- * Button is always full-width, 48px height, radius 16px.
+ * Button is always full-width, 48px height, radius outer (16px).
  */
 export const PopupModal: React.FC<PopupModalProps> = ({
   title = 'Hide transaction',
@@ -22,32 +22,38 @@ export const PopupModal: React.FC<PopupModalProps> = ({
   onAction,
   onClose,
 }) => {
+  const titleId = React.useId();
+
   return (
     <div
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby={titleId}
       style={{
         display: 'flex',
         flexDirection: 'column',
-        width: 440,
+        maxWidth: 440,
+        width: '100%',
         borderRadius: 'var(--radius-garden-outer)',
-        padding: '16px 16px 20px',
-        gap: 32,
+        padding: 'var(--spacing-garden-4) var(--spacing-garden-4) var(--spacing-garden-5)',
+        gap: 'var(--spacing-garden-8)',
         backgroundColor: 'var(--color-garden-surface-subtle)',
-        backdropFilter: 'blur(75px)',
+        backdropFilter: 'blur(var(--backdrop-blur-garden))',
         border: 'none',
         boxShadow: 'none',
       }}
     >
       {/* Content */}
-      <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-garden-2)' }}>
         {/* Header */}
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          <span className="garden-h5-medium">{title}</span>
+          <span id={titleId} className="garden-h5-medium">{title}</span>
           <button
             onClick={onClose}
+            aria-label="Close"
             style={{
               background: 'none',
               border: 'none',
-              outline: 'none',
               cursor: 'pointer',
               padding: 0,
               display: 'flex',
@@ -59,7 +65,7 @@ export const PopupModal: React.FC<PopupModalProps> = ({
           </button>
         </div>
         {/* Body */}
-        <div style={{ paddingRight: 40 }}>
+        <div style={{ paddingRight: 'var(--spacing-garden-10)' }}>
           <span className="garden-h4-regular" style={{ whiteSpace: 'pre-wrap' }}>
             {description}
           </span>
@@ -78,13 +84,13 @@ export const PopupModal: React.FC<PopupModalProps> = ({
             justifyContent: 'center',
             height: 48,
             borderRadius: 'var(--radius-garden-outer)',
-            padding: '12px 24px',
+            padding: 'var(--spacing-garden-3) var(--spacing-garden-6)',
             backgroundColor: 'var(--color-garden-brand)',
             border: 'none',
-            outline: 'none',
             boxShadow: 'none',
             cursor: 'pointer',
             color: 'white',
+            transition: 'background-color 0.15s ease',
           }}
         >
           {actionLabel}

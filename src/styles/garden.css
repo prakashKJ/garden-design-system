@@ -23,6 +23,19 @@
   --color-garden-positive:  #1DC089;
   --color-garden-negative:  #FF005C;
 
+  /* ── Status surfaces (chip backgrounds) ── */
+  --color-garden-status-expired-bg:     #FFE6B2;
+  --color-garden-status-completed-bg:   #B6FBE3;
+  --color-garden-status-progress-bg:    #C2E9FF;
+
+  /* ── Chain colors (data-driven — exempt from "no hex" rule) ── */
+  --color-chain-btc:      #F7931A;
+  --color-chain-eth:      #627EEA;
+  --color-chain-stacks:   #141416;
+  --color-chain-arbitrum:  #DBE4EE;
+  --color-chain-sei:      #7EDCCA;
+  --color-chain-base:     #FF6B35;
+
   /* ── Backgrounds ── */
   --color-garden-bg-base:      #E4EBF2;
   --color-garden-bg-dark-soft: #22242B;
@@ -69,6 +82,9 @@
 
   /* ── Backdrop blur ── */
   --backdrop-blur-garden: 150px;
+
+  /* ── Focus ring ── */
+  --focus-ring: 2px solid var(--color-garden-brand);
 }
 
 /* ── Typography utility classes ── */
@@ -86,6 +102,12 @@
 
 .garden-text-secondary { color: var(--color-garden-text-secondary); }
 .garden-text-white { color: white; }
+
+/* ── Focus visible — keyboard-only focus ring ── */
+button:focus-visible, input:focus-visible, [role="dialog"]:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 2px;
+}
 
 /* ── Dark mode overrides ── */
 [data-theme="dark"] {

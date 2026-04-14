@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, font } from '../../tokens';
+import '../../styles/garden.css';
 
 interface AssetValueProps {
   value?: string;
@@ -12,17 +12,14 @@ export const AssetValue: React.FC<AssetValueProps> = ({
 }) => {
   return (
     <div style={{ display: 'flex', gap: 'var(--spacing-garden-2)', alignItems: 'center' }}>
-      <span style={{
-        fontFamily: font.family,
-        fontWeight: font.weight.regular,
-        fontSize: font.size.h3,
-        color: active ? colors.textPrimary : colors.textSecondary,
-      }}>
+      <span
+        className={active ? 'garden-h3-regular' : 'garden-h3-regular garden-text-secondary'}
+      >
         {value}
       </span>
       <div style={{ display: 'flex', position: 'relative', width: 38, height: 20, opacity: active ? 1 : 0.7 }}>
-        <div style={{ width: 20, height: 20, borderRadius: '50%', background: '#F7931A', position: 'absolute', left: 0 }} />
-        <div style={{ width: 20, height: 20, borderRadius: '50%', background: '#627EEA', position: 'absolute', left: 18 }} />
+        <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-chain-btc)', position: 'absolute', left: 0 }} />
+        <div style={{ width: 20, height: 20, borderRadius: '50%', background: 'var(--color-chain-eth)', position: 'absolute', left: 18 }} />
       </div>
     </div>
   );

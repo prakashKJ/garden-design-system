@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, radius, font } from '../../tokens';
+import '../../styles/garden.css';
 
 interface TabSwitchProps {
   tabs?: string[];
@@ -17,8 +17,8 @@ export const TabSwitch: React.FC<TabSwitchProps> = ({
       style={{
         display: 'inline-flex',
         width: 'fit-content',
-        background: colors.surfaceNested,
-        borderRadius: radius.full,
+        background: 'var(--color-garden-surface-nested)',
+        borderRadius: 'var(--radius-garden-full)',
         overflow: 'hidden',
         border: 'none',
         boxShadow: 'none',
@@ -28,21 +28,17 @@ export const TabSwitch: React.FC<TabSwitchProps> = ({
         <button
           key={tab}
           onClick={() => onChange?.(i)}
+          className="garden-h4-medium"
           style={{
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             padding: '6px 12px',
             height: 32,
-            borderRadius: radius.outer,
+            borderRadius: 'var(--radius-garden-outer)',
             border: 'none',
-            outline: 'none',
             cursor: 'pointer',
-            background: i === activeIndex ? colors.surfaceCard : 'transparent',
-            fontFamily: font.family,
-            fontWeight: font.weight.medium,
-            fontSize: font.size.h4,
-            color: colors.textPrimary,
+            background: i === activeIndex ? 'var(--color-garden-surface-card)' : 'transparent',
             transition: 'background-color 0.15s ease',
             boxShadow: 'none',
           }}

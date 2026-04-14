@@ -1,16 +1,18 @@
 import React from 'react';
-import { colors, radius, spacing, font } from '../../tokens';
+import '../../styles/garden.css';
 
 interface SearchBarProps {
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
+  maxWidth?: number;
 }
 
 export const SearchBar: React.FC<SearchBarProps> = ({
   placeholder = 'Search by transaction hash or address',
   value = '',
   onChange,
+  maxWidth = 400,
 }) => {
   return (
     <div
@@ -19,10 +21,11 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 40,
-        background: colors.surfaceNested,
-        borderRadius: radius.inner,
-        padding: `0 ${spacing[3]} 0 ${spacing[4]}`,
-        width: 400,
+        background: 'var(--color-garden-surface-nested)',
+        borderRadius: 'var(--radius-garden-inner)',
+        padding: '0 var(--spacing-garden-3) 0 var(--spacing-garden-4)',
+        maxWidth,
+        width: '100%',
         border: 'none',
         boxShadow: 'none',
       }}
@@ -32,15 +35,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={(e) => onChange?.(e.target.value)}
+        className={value ? 'garden-h4-regular' : 'garden-h4-regular garden-text-secondary'}
         style={{
           border: 'none',
           background: 'transparent',
-          outline: 'none',
-          fontFamily: font.family,
-          fontWeight: font.weight.regular,
-          fontSize: font.size.h4,
-          color: value ? colors.textPrimary : colors.textSecondary,
           flex: 1,
+          color: value ? 'var(--color-garden-text-primary)' : undefined,
         }}
       />
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">

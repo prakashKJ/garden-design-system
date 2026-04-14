@@ -1,5 +1,5 @@
 import React from 'react';
-import { colors, radius } from '../../tokens';
+import '../../styles/garden.css';
 
 interface Chain {
   name: string;
@@ -11,12 +11,12 @@ interface ChainRowProps {
 }
 
 const defaultChains: Chain[] = [
-  { name: 'BTC', color: '#F7931A' },
-  { name: 'ETH', color: '#627EEA' },
-  { name: 'Stacks', color: '#141416' },
-  { name: 'Arbitrum', color: '#DBE4EE' },
-  { name: 'Sei', color: '#7EDCCA' },
-  { name: 'Base', color: '#FF6B35' },
+  { name: 'BTC', color: 'var(--color-chain-btc)' },
+  { name: 'ETH', color: 'var(--color-chain-eth)' },
+  { name: 'Stacks', color: 'var(--color-chain-stacks)' },
+  { name: 'Arbitrum', color: 'var(--color-chain-arbitrum)' },
+  { name: 'Sei', color: 'var(--color-chain-sei)' },
+  { name: 'Base', color: 'var(--color-chain-base)' },
 ];
 
 export const ChainRow: React.FC<ChainRowProps> = ({ chains = defaultChains }) => {
@@ -31,8 +31,8 @@ export const ChainRow: React.FC<ChainRowProps> = ({ chains = defaultChains }) =>
             justifyContent: 'center',
             width: 56,
             height: 40,
-            background: colors.surfaceSubtle,
-            borderRadius: radius.inner,
+            background: 'var(--color-garden-surface-subtle)',
+            borderRadius: 'var(--radius-garden-inner)',
             border: 'none',
             boxShadow: 'none',
           }}

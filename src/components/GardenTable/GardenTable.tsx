@@ -26,12 +26,11 @@ interface GardenTableProps {
  * Column rules:
  * - Minimum column width: 64px (except icon-only action columns)
  * - Column width = max(64px, widest content in that column)
- * - Gap between columns: multiples of 8 (64, 72, 80, 88)
- * - Large uses 80px gap, Small uses 64px gap
- * - Last column is flex-stretched to align with right edge
- * - Row padding: 24px inline
+ * - Gap: large=80px, small=64px (multiples of 8)
+ * - Last column flex-stretches to align with right edge
+ * - Row padding: 24px (spacing-garden-6) inline
  * - Even rows (header + every other data row) get bg-50 surface
- * - Outer container: radius 16px, overflow clip
+ * - Outer container: radius-outer (16px), overflow clip
  */
 export const GardenTable: React.FC<GardenTableProps> = ({
   columns,
@@ -54,6 +53,7 @@ export const GardenTable: React.FC<GardenTableProps> = ({
 
   return (
     <div
+      role="table"
       style={{
         display: 'flex',
         flexDirection: 'column',
@@ -65,11 +65,12 @@ export const GardenTable: React.FC<GardenTableProps> = ({
     >
       {/* Header row */}
       <div
+        role="row"
         style={{
           display: 'flex',
           alignItems: 'center',
           height: rowHeight,
-          paddingInline: 24,
+          paddingInline: 'var(--spacing-garden-6)',
           gap,
           backgroundColor: 'var(--color-garden-surface-nested)',
           flexShrink: 0,
@@ -81,6 +82,7 @@ export const GardenTable: React.FC<GardenTableProps> = ({
           return (
             <span
               key={col.key}
+              role="columnheader"
               className="garden-h5-regular"
               style={{
                 width: w,
@@ -98,16 +100,20 @@ export const GardenTable: React.FC<GardenTableProps> = ({
       {/* Data rows */}
       {data.map((row, rowIdx) => (
         <div
-          key={rowIdx}
+          key={row.id ?? rowIdx}
+          role="row"
           style={{
             display: 'flex',
             alignItems: 'center',
             height: rowHeight,
-            paddingInline: 24,
+            paddingInline: 'var(--spacing-garden-6)',
             gap,
             flexShrink: 0,
             backgroundColor: rowIdx % 2 === 1 ? 'var(--color-garden-surface-nested)' : undefined,
+            transition: 'background-color 0.1s ease',
           }}
+          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-garden-surface-nested)'; }}
+          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = rowIdx % 2 === 1 ? 'var(--color-garden-surface-nested)' : ''; }}
         >
           {columns.map((col, colIdx) => {
             const w = getColumnWidth(col);
@@ -115,6 +121,7 @@ export const GardenTable: React.FC<GardenTableProps> = ({
             return (
               <div
                 key={col.key}
+                role="cell"
                 style={{
                   width: w,
                   minWidth: col.isIconAction ? undefined : 64,

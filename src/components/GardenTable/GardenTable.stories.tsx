@@ -15,7 +15,7 @@ type Story = StoryObj<typeof GardenTable>;
 
 /* ── Status icons from Paper ── */
 const StatusIcon: React.FC<{ status: string }> = ({ status }) => {
-  const fill = '#473C75';
+  const fill = 'var(--color-garden-text-primary)';
   if (status === 'Expired') return (
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style={{ flexShrink: 0 }}>
       <path d="M6 8.5C6.142 8.5 6.26 8.452 6.356 8.356C6.452 8.26 6.5 8.142 6.5 8C6.5 7.858 6.452 7.74 6.356 7.644C6.26 7.548 6.142 7.5 6 7.5C5.858 7.5 5.74 7.548 5.644 7.644C5.548 7.74 5.5 7.858 5.5 8C5.5 8.142 5.548 8.26 5.644 8.356C5.74 8.452 5.858 8.5 6 8.5ZM5.5 6.5H6.5V3.5H5.5V6.5ZM6 11C5.308 11 4.658 10.869 4.05 10.606C3.442 10.344 2.913 9.988 2.462 9.537C2.013 9.088 1.656 8.558 1.394 7.95C1.131 7.342 1 6.692 1 6C1 5.308 1.131 4.658 1.394 4.05C1.656 3.442 2.013 2.913 2.462 2.462C2.913 2.013 3.442 1.656 4.05 1.394C4.658 1.131 5.308 1 6 1C6.692 1 7.342 1.131 7.95 1.394C8.558 1.656 9.088 2.013 9.537 2.462C9.988 2.913 10.344 3.442 10.606 4.05C10.869 4.658 11 5.308 11 6C11 6.692 10.869 7.342 10.606 7.95C10.344 8.558 9.988 9.088 9.537 9.537C9.088 9.988 8.558 10.344 7.95 10.606C7.342 10.869 6.692 11 6 11ZM6 10C7.117 10 8.063 9.613 8.838 8.838C9.613 8.063 10 7.117 10 6C10 4.883 9.613 3.938 8.838 3.163C8.063 2.388 7.117 2 6 2C4.883 2 3.938 2.388 3.163 3.163C2.388 3.938 2 4.883 2 6C2 7.117 2.388 8.063 3.163 8.838C3.938 9.613 4.883 10 6 10Z" fill={fill} />
@@ -36,10 +36,10 @@ const StatusIcon: React.FC<{ status: string }> = ({ status }) => {
 
 /* ── Status badge helper ── */
 const statusColors: Record<string, string> = {
-  Expired: '#FFE6B2',
-  Completed: '#B6FBE3',
-  'In progress': '#C2E9FF',
-  'Not initiated': '#C2E9FF',
+  Expired: 'var(--color-garden-status-expired-bg)',
+  Completed: 'var(--color-garden-status-completed-bg)',
+  'In progress': 'var(--color-garden-status-progress-bg)',
+  'Not initiated': 'var(--color-garden-status-progress-bg)',
 };
 
 const StatusBadge: React.FC<{ status: string }> = ({ status }) => (
@@ -47,11 +47,11 @@ const StatusBadge: React.FC<{ status: string }> = ({ status }) => (
     style={{
       display: 'inline-flex',
       alignItems: 'center',
-      gap: 4,
-      height: 24,
-      borderRadius: 24,
-      padding: '4px 12px 4px 8px',
-      backgroundColor: statusColors[status] || '#C2E9FF',
+      gap: 'var(--spacing-garden-1)',
+      height: 'var(--spacing-garden-6)',
+      borderRadius: 'var(--radius-garden-full)',
+      padding: 'var(--spacing-garden-1) var(--spacing-garden-3) var(--spacing-garden-1) var(--spacing-garden-2)',
+      backgroundColor: statusColors[status] || 'var(--color-garden-status-progress-bg)',
       border: 'none',
       whiteSpace: 'nowrap',
     }}
