@@ -43,7 +43,8 @@ const CardinalRules = () => (
     <Rule num={7} text="ALWAYS include border-none explicitly on every container and interactive element." />
     <Rule num={8} text="ALWAYS use existing components from this Storybook. If a component doesn't exist yet, ASK the user before creating it — add '// TODO: needs Garden DS component' and flag it. NEVER invent a parallel version." />
     <Rule num={9} text="Cards/stacks MUST have minimum padding of 12px (spacing-3) or 16px (spacing-4). Smaller cards use 12px, standard cards use 16px. Padding can increase for larger containers but never go below 12px." />
-    <Rule num={10} text="TABLE RULES: Min column width 64px (except trailing icon-only actions). Column width = largest content in that column. Gap between columns uses multiples of 8 (64, 72, 80, 88). Large table = 40px rows + 80px gap. Small table = 36px rows + 64px gap. Row padding-inline: 24px. Even rows use bg-50 surface. Header uses H5 Regular, cells use H4 Regular." />
+    <Rule num={10} text="Chips/badges MUST be single-line — NEVER wrap text. Always use white-space: nowrap. Size the parent column to fit the widest chip." />
+    <Rule num={11} text="TABLE RULES: Min column width 64px (except trailing icon-only actions). Column width = largest content in that column. Gap between columns uses multiples of 8 (64, 72, 80, 88). Large table = 40px rows + 80px gap. Small table = 36px rows + 64px gap. Row padding-inline: 24px. Even rows use bg-50 surface. Header uses H5 Regular, cells use H4 Regular." />
 
     <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h2)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Examples</h3>
 

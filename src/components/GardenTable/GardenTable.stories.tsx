@@ -45,7 +45,7 @@ const statusColors: Record<string, string> = {
 const StatusBadge: React.FC<{ status: string }> = ({ status }) => (
   <div
     style={{
-      display: 'flex',
+      display: 'inline-flex',
       alignItems: 'center',
       gap: 4,
       height: 24,
@@ -53,10 +53,11 @@ const StatusBadge: React.FC<{ status: string }> = ({ status }) => (
       padding: '4px 12px 4px 8px',
       backgroundColor: statusColors[status] || '#C2E9FF',
       border: 'none',
+      whiteSpace: 'nowrap',
     }}
   >
     <StatusIcon status={status} />
-    <span className="garden-h5-regular">{status}</span>
+    <span className="garden-h5-regular" style={{ whiteSpace: 'nowrap' }}>{status}</span>
   </div>
 );
 
@@ -69,7 +70,7 @@ const largeCols: TableColumn[] = [
   {
     key: 'status',
     header: 'Status',
-    width: 100,
+    width: 110,
     render: (val: string) => <StatusBadge status={val} />,
   },
 ];
