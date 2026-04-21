@@ -3,42 +3,74 @@
    Import this file in Storybook preview and app entry. */
 
 :root {
-  /* ── Surfaces (semi-transparent whites — NEVER use solid white) ── */
-  --color-garden-surface-card:    rgba(255, 255, 255, 0.70);  /* bg-70 — cards, panels, toasts */
-  --color-garden-surface-nested:  rgba(255, 255, 255, 0.50);  /* bg-50 — inputs, nested cards */
-  --color-garden-surface-subtle:  rgba(255, 255, 255, 0.30);  /* bg-30 — metadata, list rows, ghost btn */
+  /* ══════════════════════════════════════════════════════════════
+     PRIMITIVES — "Raw colors". Only layer that holds literal hex.
+     ══════════════════════════════════════════════════════════════ */
+  --rose-500:        #FC79C1;
+  --rose-200:        #FFC4E4;
+  --rose-hover-500:  #FF65BA;
 
-  /* ── Brand & actions ── */
-  --color-garden-brand:              #FC79C1;  /* primary CTA */
-  --color-garden-brand-hover:        #FF65BA;
-  --color-garden-brand-secondary:    #FFC4E4;  /* tertiary action */
-  --color-garden-brand-purple:       #473C75;  /* secondary action */
-  --color-garden-brand-purple-hover: #402E8E;
+  --grey-900:        #09090C;
+  --grey-700:        #473C75;
+  --grey-500:        #908AAD;
+  --grey-200:        #E4EBF2;
+  --grey-hover-700:  #402E8E;
 
-  /* ── Text ── */
-  --color-garden-text-primary:    #473C75;
-  --color-garden-text-secondary:  #908AAD;
+  --white-100:  #FFFFFF;
+  --white-70:   rgba(255, 255, 255, 0.70);
+  --white-50:   rgba(255, 255, 255, 0.50);
+  --white-30:   rgba(255, 255, 255, 0.30);
+  --white-10:   rgba(255, 255, 255, 0.10);
 
-  /* ── Status (use as TEXT color, never as background pill) ── */
-  --color-garden-positive:  #1DC089;
-  --color-garden-negative:  #FF005C;
+  --grey-100:  #22242B;
+  --grey-70:   rgba(34, 36, 43, 0.70);
+  --grey-50:   rgba(34, 36, 43, 0.50);
+  --grey-30:   rgba(34, 36, 43, 0.30);
+  --grey-10:   rgba(34, 36, 43, 0.10);
 
-  /* ── Status surfaces (chip backgrounds) ── */
+  --green:  #1DC089;
+  --red:    #FF005C;
+
+  /* ══════════════════════════════════════════════════════════════
+     SEMANTIC TOKENS — Light values. Consume these in components.
+     ══════════════════════════════════════════════════════════════ */
+
+  /* Action */
+  --color-action-primary:         var(--rose-500);
+  --color-action-primary-hover:   var(--rose-hover-500);
+  --color-action-secondary:       var(--grey-700);
+  --color-action-secondary-hover: var(--grey-hover-700);
+  --color-action-tertiary:        var(--rose-200);
+
+  /* Text */
+  --color-text-primary:    var(--grey-700);
+  --color-text-secondary:  var(--grey-500);
+  --color-text-white:      var(--white-100);
+
+  /* Bg */
+  --color-bg-base:            var(--grey-200);
+  --color-bg-white:           var(--white-100);
+  --color-bg-overlay-strong:  var(--white-70);
+  --color-bg-overlay-mid:     var(--white-50);
+  --color-bg-overlay-soft:    var(--white-30);
+  --color-bg-overlay-subtle:  var(--white-10);
+
+  /* Status */
+  --color-status-success:  var(--green);
+  --color-status-error:    var(--red);
+
+  /* ── Status surfaces (chip backgrounds — data, not covered by Figma semantics) ── */
   --color-garden-status-expired-bg:     #FFE6B2;
   --color-garden-status-completed-bg:   #B6FBE3;
   --color-garden-status-progress-bg:    #C2E9FF;
 
   /* ── Chain colors (data-driven — exempt from "no hex" rule) ── */
-  --color-chain-btc:      #F7931A;
-  --color-chain-eth:      #627EEA;
-  --color-chain-stacks:   #141416;
+  --color-chain-btc:       #F7931A;
+  --color-chain-eth:       #627EEA;
+  --color-chain-stacks:    #141416;
   --color-chain-arbitrum:  #DBE4EE;
-  --color-chain-sei:      #7EDCCA;
-  --color-chain-base:     #FF6B35;
-
-  /* ── Backgrounds ── */
-  --color-garden-bg-base:      #E4EBF2;
-  --color-garden-bg-dark-soft: #22242B;
+  --color-chain-sei:       #7EDCCA;
+  --color-chain-base:      #FF6B35;
 
   /* ── Typography ── */
   --font-garden: "Haffer", system-ui, -apple-system, sans-serif;
@@ -84,24 +116,24 @@
   --backdrop-blur-garden: 150px;
 
   /* ── Focus ring ── */
-  --focus-ring: 2px solid var(--color-garden-brand);
+  --focus-ring: 2px solid var(--color-action-primary);
 }
 
 /* ── Typography utility classes ── */
-.garden-h1-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h1); line-height: var(--line-height-h1); color: var(--color-garden-text-primary); }
-.garden-h2-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h2); line-height: var(--line-height-h2); color: var(--color-garden-text-primary); }
-.garden-h2-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h2); line-height: var(--line-height-h2); color: var(--color-garden-text-primary); }
-.garden-h3-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h3); line-height: var(--line-height-h3); color: var(--color-garden-text-primary); }
-.garden-h3-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h3); line-height: var(--line-height-h3); color: var(--color-garden-text-primary); }
-.garden-h4-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h4); line-height: var(--line-height-h4); color: var(--color-garden-text-primary); }
-.garden-h4-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h4); line-height: var(--line-height-h4); color: var(--color-garden-text-primary); }
-.garden-h5-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h5); line-height: var(--line-height-h5); color: var(--color-garden-text-primary); }
-.garden-h5-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h5); line-height: var(--line-height-h5); color: var(--color-garden-text-primary); }
-.garden-h6-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h6); line-height: var(--line-height-h6); color: var(--color-garden-text-primary); }
-.garden-h6-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h6); line-height: var(--line-height-h6); color: var(--color-garden-text-primary); }
+.garden-h1-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h1); line-height: var(--line-height-h1); color: var(--color-text-primary); }
+.garden-h2-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h2); line-height: var(--line-height-h2); color: var(--color-text-primary); }
+.garden-h2-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h2); line-height: var(--line-height-h2); color: var(--color-text-primary); }
+.garden-h3-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h3); line-height: var(--line-height-h3); color: var(--color-text-primary); }
+.garden-h3-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h3); line-height: var(--line-height-h3); color: var(--color-text-primary); }
+.garden-h4-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h4); line-height: var(--line-height-h4); color: var(--color-text-primary); }
+.garden-h4-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h4); line-height: var(--line-height-h4); color: var(--color-text-primary); }
+.garden-h5-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h5); line-height: var(--line-height-h5); color: var(--color-text-primary); }
+.garden-h5-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h5); line-height: var(--line-height-h5); color: var(--color-text-primary); }
+.garden-h6-medium { font-family: var(--font-garden); font-weight: var(--font-weight-medium); font-size: var(--text-h6); line-height: var(--line-height-h6); color: var(--color-text-primary); }
+.garden-h6-regular { font-family: var(--font-garden); font-weight: var(--font-weight-regular); font-size: var(--text-h6); line-height: var(--line-height-h6); color: var(--color-text-primary); }
 
-.garden-text-secondary { color: var(--color-garden-text-secondary); }
-.garden-text-white { color: white; }
+.garden-text-secondary { color: var(--color-text-secondary); }
+.garden-text-white { color: var(--color-text-white); }
 
 /* ── Focus visible — keyboard-only focus ring ── */
 button:focus-visible, input:focus-visible, [role="dialog"]:focus-visible {
@@ -109,14 +141,19 @@ button:focus-visible, input:focus-visible, [role="dialog"]:focus-visible {
   outline-offset: 2px;
 }
 
-/* ── Dark mode overrides ── */
+/* ══════════════════════════════════════════════════════════════
+   DARK MODE — only Text + Bg groups flip. Action + Status stay.
+   ══════════════════════════════════════════════════════════════ */
 [data-theme="dark"] {
-  --color-garden-surface-card:    rgba(34, 36, 43, 0.70);
-  --color-garden-surface-nested:  rgba(34, 36, 43, 0.50);
-  --color-garden-surface-subtle:  rgba(34, 36, 43, 0.30);
+  /* Text */
+  --color-text-primary:    var(--white-100);
+  --color-text-secondary:  var(--white-50);
 
-  --color-garden-text-primary:   #FFFFFF;
-  --color-garden-text-secondary: rgba(255, 255, 255, 0.50);
-
-  --color-garden-bg-base: #09090C;
+  /* Bg */
+  --color-bg-base:            var(--grey-900);
+  --color-bg-white:           var(--grey-100);
+  --color-bg-overlay-strong:  var(--grey-70);
+  --color-bg-overlay-mid:     var(--grey-50);
+  --color-bg-overlay-soft:    var(--grey-30);
+  --color-bg-overlay-subtle:  var(--grey-10);
 }

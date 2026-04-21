@@ -15,6 +15,8 @@ interface GardenChipProps {
   leadingIcon?: React.ReactNode;
   /** Trailing icon (right side) */
   trailingIcon?: React.ReactNode;
+  /** Override the chip background. Defaults to #FFFFFF. */
+  backgroundColor?: string;
 }
 
 /**
@@ -31,6 +33,7 @@ export const GardenChip: React.FC<GardenChipProps> = ({
   size = 'default',
   leadingIcon,
   trailingIcon,
+  backgroundColor,
 }) => {
   const isSmall = size === 'small';
   const iconSize = isSmall ? 12 : 20;
@@ -40,7 +43,7 @@ export const GardenChip: React.FC<GardenChipProps> = ({
 
   const defaultIcon = (
     <svg width={iconSize} height={iconSize} viewBox={`0 0 ${iconSize} ${iconSize}`} fill="none" style={{ flexShrink: 0 }}>
-      <circle cx={iconSize / 2} cy={iconSize / 2} r={iconSize / 2 - 1.5} stroke="var(--color-garden-text-secondary)" strokeWidth="1.5" />
+      <circle cx={iconSize / 2} cy={iconSize / 2} r={iconSize / 2 - 1.5} stroke="var(--color-text-secondary)" strokeWidth="1.5" />
     </svg>
   );
 
@@ -67,7 +70,7 @@ export const GardenChip: React.FC<GardenChipProps> = ({
         height: chipHeight,
         width: iconMode === 'icon-only' ? chipHeight : undefined,
         padding: getPadding(),
-        backgroundColor: 'white',
+        backgroundColor: backgroundColor ?? 'white',
         borderRadius: 'var(--radius-garden-full)',
         border: 'none',
         boxShadow: 'none',

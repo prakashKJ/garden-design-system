@@ -20,7 +20,7 @@ export const ChainRow: React.FC<ChainRowProps> = ({ chains = defaultChains }) =>
             justifyContent: 'center',
             width: 56,
             height: 40,
-            background: 'var(--color-garden-surface-subtle)',
+            background: 'var(--color-bg-overlay-soft)',
             borderRadius: 'var(--radius-garden-inner)',
             border: 'none',
             boxShadow: 'none',

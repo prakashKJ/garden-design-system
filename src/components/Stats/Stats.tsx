@@ -20,8 +20,8 @@ export const Stats: React.FC<StatsProps> = ({
         </span>
         {showInfoIcon && (
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <circle cx="6" cy="6" r="5" stroke="var(--color-garden-text-secondary)" strokeWidth="1" />
-            <text x="6" y="9" textAnchor="middle" fontSize="8" fill="var(--color-garden-text-secondary)">i</text>
+            <circle cx="6" cy="6" r="5" stroke="var(--color-text-secondary)" strokeWidth="1" />
+            <text x="6" y="9" textAnchor="middle" fontSize="8" fill="var(--color-text-secondary)">i</text>
           </svg>
         )}
       </div>

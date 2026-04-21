@@ -5,10 +5,10 @@ const Rule: React.FC<{ num: number; text: string }> = ({ num, text }) => (
   <div style={{ display: 'flex', gap: 12, marginBottom: 12 }}>
     <span style={{
       fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)',
-      fontSize: 'var(--text-h4)', color: 'var(--color-garden-negative)',
+      fontSize: 'var(--text-h4)', color: 'var(--color-status-error)',
       width: 24, flexShrink: 0,
     }}>{num}.</span>
-    <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-regular)', fontSize: 'var(--text-h4)', color: 'var(--color-garden-text-primary)' }}>
+    <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-regular)', fontSize: 'var(--text-h4)', color: 'var(--color-text-primary)' }}>
       {text}
     </span>
   </div>
@@ -17,20 +17,20 @@ const Rule: React.FC<{ num: number; text: string }> = ({ num, text }) => (
 const Example: React.FC<{ wrong: string; right: string }> = ({ wrong, right }) => (
   <div style={{ display: 'flex', gap: 24, marginBottom: 16 }}>
     <div style={{ flex: 1 }}>
-      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h5)', color: 'var(--color-garden-negative)', fontWeight: 'var(--font-weight-medium)' }}>Wrong</span>
-      <code style={{ display: 'block', fontFamily: 'monospace', fontSize: 12, color: 'var(--color-garden-text-secondary)', marginTop: 4, background: 'var(--color-garden-surface-subtle)', padding: 'var(--spacing-garden-2)', borderRadius: 'var(--radius-garden-sm)', border: 'none' }}>{wrong}</code>
+      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h5)', color: 'var(--color-status-error)', fontWeight: 'var(--font-weight-medium)' }}>Wrong</span>
+      <code style={{ display: 'block', fontFamily: 'monospace', fontSize: 12, color: 'var(--color-text-secondary)', marginTop: 4, background: 'var(--color-bg-overlay-soft)', padding: 'var(--spacing-garden-2)', borderRadius: 'var(--radius-garden-sm)', border: 'none' }}>{wrong}</code>
     </div>
     <div style={{ flex: 1 }}>
-      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h5)', color: 'var(--color-garden-positive)', fontWeight: 'var(--font-weight-medium)' }}>Right</span>
-      <code style={{ display: 'block', fontFamily: 'monospace', fontSize: 12, color: 'var(--color-garden-text-primary)', marginTop: 4, background: 'var(--color-garden-surface-subtle)', padding: 'var(--spacing-garden-2)', borderRadius: 'var(--radius-garden-sm)', border: 'none' }}>{right}</code>
+      <span style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h5)', color: 'var(--color-status-success)', fontWeight: 'var(--font-weight-medium)' }}>Right</span>
+      <code style={{ display: 'block', fontFamily: 'monospace', fontSize: 12, color: 'var(--color-text-primary)', marginTop: 4, background: 'var(--color-bg-overlay-soft)', padding: 'var(--spacing-garden-2)', borderRadius: 'var(--radius-garden-sm)', border: 'none' }}>{right}</code>
     </div>
   </div>
 );
 
 const CardinalRules = () => (
   <div style={{ padding: 32, maxWidth: 720 }}>
-    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h1)', color: 'var(--color-garden-text-primary)', margin: '0 0 8px' }}>Cardinal Rules</h2>
-    <p style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h4)', color: 'var(--color-garden-text-secondary)', margin: '0 0 32px' }}>
+    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h1)', color: 'var(--color-text-primary)', margin: '0 0 8px' }}>Cardinal Rules</h2>
+    <p style={{ fontFamily: 'var(--font-garden)', fontSize: 'var(--text-h4)', color: 'var(--color-text-secondary)', margin: '0 0 32px' }}>
       These override any default instinct. If a rule conflicts with a habit, follow the rule.
     </p>
 
@@ -46,7 +46,7 @@ const CardinalRules = () => (
     <Rule num={10} text="Chips/badges MUST be single-line — NEVER wrap text. Always use white-space: nowrap. Size the parent column to fit the widest chip." />
     <Rule num={11} text="TABLE RULES: Min column width 64px (except trailing icon-only actions). Column width = largest content in that column. Gap between columns uses multiples of 8 (64, 72, 80, 88). Large table = 40px rows + 80px gap. Small table = 36px rows + 64px gap. Row padding-inline: 24px. Even rows use bg-50 surface. Header uses H5 Regular, cells use H4 Regular." />
 
-    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h2)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Examples</h3>
+    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h2)', color: 'var(--color-text-primary)', margin: '32px 0 16px' }}>Examples</h3>
 
     <Example
       wrong='bg-white border border-gray-200 rounded-xl shadow-md'
@@ -62,11 +62,11 @@ const CardinalRules = () => (
     />
     <Example
       wrong='style={{ color: "#473C75" }}'
-      right='color: var(--color-garden-text-primary)'
+      right='color: var(--color-text-primary)'
     />
 
-    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h2)', color: 'var(--color-garden-text-primary)', margin: '32px 0 16px' }}>Layer Stacking Model</h3>
-    <pre style={{ fontFamily: 'monospace', fontSize: 13, color: 'var(--color-garden-text-primary)', background: 'var(--color-garden-surface-subtle)', padding: 'var(--spacing-garden-4)', borderRadius: 'var(--radius-garden-inner)', border: 'none', lineHeight: 1.8 }}>
+    <h3 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h2)', color: 'var(--color-text-primary)', margin: '32px 0 16px' }}>Layer Stacking Model</h3>
+    <pre style={{ fontFamily: 'monospace', fontSize: 13, color: 'var(--color-text-primary)', background: 'var(--color-bg-overlay-soft)', padding: 'var(--spacing-garden-4)', borderRadius: 'var(--radius-garden-inner)', border: 'none', lineHeight: 1.8 }}>
 {`Page gradient (lavender → grey → mint)
   └─ Card: surface-card (70%) + blur-garden
        └─ Input: surface-nested (50%), no border
@@ -77,7 +77,7 @@ const CardinalRules = () => (
 );
 
 const meta: Meta = {
-  title: 'Guide/Cardinal Rules',
+  title: 'Atoms/Guide/Cardinal Rules',
   parameters: { backgrounds: { default: 'white' } },
 };
 

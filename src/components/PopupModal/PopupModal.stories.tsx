@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { PopupModal } from './PopupModal';
 
 const meta: Meta<typeof PopupModal> = {
-  title: 'Components/PopupModal',
+  title: 'Organisms/PopupModal',
   component: PopupModal,
 };
 

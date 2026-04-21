@@ -3,7 +3,7 @@ import React from 'react';
 import { ChainLogo } from './ChainLogo';
 
 const meta: Meta<typeof ChainLogo> = {
-  title: 'Components/ChainLogo',
+  title: 'Atoms/ChainLogo',
   component: ChainLogo,
   argTypes: {
     chain: { control: 'select', options: ['btc', 'eth', 'sol'] },

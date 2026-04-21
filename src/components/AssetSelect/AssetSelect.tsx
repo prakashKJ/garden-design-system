@@ -30,7 +30,7 @@ export const AssetSelect: React.FC<AssetSelectProps> = ({
           </div>
         )}
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M6 8L10 12L14 8" stroke="var(--color-garden-text-secondary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M6 8L10 12L14 8" stroke="var(--color-text-primary)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       </div>
     </div>

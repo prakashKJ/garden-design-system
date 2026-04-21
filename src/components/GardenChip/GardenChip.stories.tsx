@@ -4,7 +4,7 @@ import { GardenChip } from './GardenChip';
 import { ChainLogo } from '../ChainLogo/ChainLogo';
 
 const meta: Meta<typeof GardenChip> = {
-  title: 'Components/GardenChip',
+  title: 'Molecules/Chip',
   component: GardenChip,
   argTypes: {
     iconMode: { control: 'select', options: ['none', 'trailing', 'leading', 'both', 'icon-only'] },
