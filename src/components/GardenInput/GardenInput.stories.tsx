@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-webpack5';
 import { GardenInput } from './GardenInput';
 
 const meta: Meta<typeof GardenInput> = {
-  title: 'Components/GardenInput',
+  title: 'Molecules/Input',
   component: GardenInput,
 };
 
