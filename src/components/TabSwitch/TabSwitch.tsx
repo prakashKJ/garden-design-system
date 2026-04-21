@@ -17,7 +17,7 @@ export const TabSwitch: React.FC<TabSwitchProps> = ({
       style={{
         display: 'inline-flex',
         width: 'fit-content',
-        background: 'var(--color-garden-surface-nested)',
+        background: 'var(--color-bg-overlay-mid)',
         borderRadius: 'var(--radius-garden-full)',
         overflow: 'hidden',
         border: 'none',
@@ -38,7 +38,7 @@ export const TabSwitch: React.FC<TabSwitchProps> = ({
             borderRadius: 'var(--radius-garden-outer)',
             border: 'none',
             cursor: 'pointer',
-            background: i === activeIndex ? 'var(--color-garden-surface-card)' : 'transparent',
+            background: i === activeIndex ? 'var(--color-bg-overlay-strong)' : 'transparent',
             transition: 'background-color 0.15s ease',
             boxShadow: 'none',
           }}

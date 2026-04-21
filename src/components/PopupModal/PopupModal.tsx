@@ -37,7 +37,7 @@ export const PopupModal: React.FC<PopupModalProps> = ({
         borderRadius: 'var(--radius-garden-outer)',
         padding: 'var(--spacing-garden-4) var(--spacing-garden-4) var(--spacing-garden-5)',
         gap: 'var(--spacing-garden-8)',
-        backgroundColor: 'var(--color-garden-surface-subtle)',
+        backgroundColor: 'var(--color-bg-overlay-soft)',
         backdropFilter: 'blur(var(--backdrop-blur-garden))',
         border: 'none',
         boxShadow: 'none',
@@ -60,7 +60,7 @@ export const PopupModal: React.FC<PopupModalProps> = ({
             }}
           >
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M4 4L12 12M12 4L4 12" stroke="var(--color-garden-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
+              <path d="M4 4L12 12M12 4L4 12" stroke="var(--color-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
             </svg>
           </button>
         </div>
@@ -85,7 +85,7 @@ export const PopupModal: React.FC<PopupModalProps> = ({
             height: 48,
             borderRadius: 'var(--radius-garden-outer)',
             padding: 'var(--spacing-garden-3) var(--spacing-garden-6)',
-            backgroundColor: 'var(--color-garden-brand)',
+            backgroundColor: 'var(--color-action-primary)',
             border: 'none',
             boxShadow: 'none',
             cursor: 'pointer',

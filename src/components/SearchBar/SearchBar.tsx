@@ -21,7 +21,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         alignItems: 'center',
         justifyContent: 'space-between',
         height: 40,
-        background: 'var(--color-garden-surface-nested)',
+        background: 'var(--color-bg-overlay-mid)',
         borderRadius: 'var(--radius-garden-inner)',
         padding: '0 var(--spacing-garden-3) 0 var(--spacing-garden-4)',
         maxWidth,
@@ -40,12 +40,12 @@ export const SearchBar: React.FC<SearchBarProps> = ({
           border: 'none',
           background: 'transparent',
           flex: 1,
-          color: value ? 'var(--color-garden-text-primary)' : undefined,
+          color: value ? 'var(--color-text-primary)' : undefined,
         }}
       />
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-        <circle cx="7" cy="7" r="5.5" stroke="var(--color-garden-text-secondary)" strokeWidth="1.5" />
-        <line x1="11" y1="11" x2="14" y2="14" stroke="var(--color-garden-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
+        <circle cx="7" cy="7" r="5.5" stroke="var(--color-text-secondary)" strokeWidth="1.5" />
+        <line x1="11" y1="11" x2="14" y2="14" stroke="var(--color-text-secondary)" strokeWidth="1.5" strokeLinecap="round" />
       </svg>
     </div>
   );

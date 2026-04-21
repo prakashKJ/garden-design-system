@@ -19,8 +19,8 @@ const dividers = [0, 2, 4, 6, 8]; // divider after H1, then after each H2-H6 pai
 
 const TypographyScale = () => (
   <div style={{ padding: 32 }}>
-    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 'var(--text-h1)', lineHeight: 'var(--line-height-h1)', color: 'var(--color-garden-text-primary)', margin: '0 0 8px' }}>Typography</h2>
-    <p style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-regular)', fontSize: 'var(--text-h4)', lineHeight: 'var(--line-height-h4)', color: 'var(--color-garden-text-secondary)', margin: '0 0 32px' }}>
+    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 'var(--text-h1)', lineHeight: 'var(--line-height-h1)', color: 'var(--color-text-primary)', margin: '0 0 8px' }}>Typography</h2>
+    <p style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-regular)', fontSize: 'var(--text-h4)', lineHeight: 'var(--line-height-h4)', color: 'var(--color-text-secondary)', margin: '0 0 32px' }}>
       Font: Haffer — Weights: 430 (regular), 570 (medium) — never use 400 or 500
     </p>
 
@@ -32,13 +32,13 @@ const TypographyScale = () => (
             fontWeight: s.weight,
             fontSize: s.cssSize,
             lineHeight: s.cssLh,
-            color: 'var(--color-garden-text-primary)',
+            color: 'var(--color-text-primary)',
             padding: '8px 0',
           }}>
             {s.name} - Haffer - {s.size} / line height {s.lineHeight.replace('px', '')}
           </div>
           {dividers.includes(i) && (
-            <div style={{ width: '100%', height: 1, background: 'var(--color-garden-bg-base)', margin: '8px 0' }} />
+            <div style={{ width: '100%', height: 1, background: 'var(--color-bg-base)', margin: '8px 0' }} />
           )}
         </React.Fragment>
       ))}
@@ -47,7 +47,7 @@ const TypographyScale = () => (
 );
 
 const meta: Meta = {
-  title: 'Tokens/Typography',
+  title: 'Atoms/Tokens/Typography',
   parameters: { backgrounds: { default: 'white' } },
 };
 

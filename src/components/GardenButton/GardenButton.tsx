@@ -20,24 +20,24 @@ const sizeMap: Record<ButtonSize, { height: number; textClass: string }> = {
 
 const variantStyles: Record<ButtonVariant, { bg: string; bgHover: string; color: string }> = {
   primary: {
-    bg: 'var(--color-garden-brand)',
-    bgHover: 'var(--color-garden-brand-hover)',
+    bg: 'var(--color-action-primary)',
+    bgHover: 'var(--color-action-primary-hover)',
     color: 'white',
   },
   secondary: {
-    bg: 'var(--color-garden-brand-purple)',
-    bgHover: 'var(--color-garden-brand-purple-hover)',
+    bg: 'var(--color-action-secondary)',
+    bgHover: 'var(--color-action-secondary-hover)',
     color: 'white',
   },
   tertiary: {
-    bg: 'var(--color-garden-brand-secondary)',
-    bgHover: 'var(--color-garden-brand-secondary)',
-    color: 'var(--color-garden-text-primary)',
+    bg: 'var(--color-action-tertiary)',
+    bgHover: 'var(--color-action-tertiary)',
+    color: 'var(--color-text-primary)',
   },
   disabled: {
-    bg: 'var(--color-garden-bg-base)',
-    bgHover: 'var(--color-garden-bg-base)',
-    color: 'var(--color-garden-text-secondary)',
+    bg: 'var(--color-bg-base)',
+    bgHover: 'var(--color-bg-base)',
+    color: 'var(--color-text-secondary)',
   },
 };
 

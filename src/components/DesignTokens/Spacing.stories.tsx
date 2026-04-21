@@ -24,38 +24,38 @@ const radii = [
 
 const SpacingAndRadii = () => (
   <div style={{ padding: 32 }}>
-    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h1)', color: 'var(--color-garden-text-primary)', margin: '0 0 32px' }}>Spacing & Radii</h2>
+    <h2 style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-bold)', fontSize: 'var(--text-h1)', color: 'var(--color-text-primary)', margin: '0 0 32px' }}>Spacing & Radii</h2>
 
-    <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-garden-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16 }}>Spacing Scale</div>
+    <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16 }}>Spacing Scale</div>
     {spacingScale.map(({ name, size }) => (
       <div key={name} style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 10 }}>
-        <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 13, color: 'var(--color-garden-text-primary)', width: 100 }}>{name}</span>
-        <span style={{ fontFamily: 'var(--font-garden)', fontSize: 13, color: 'var(--color-garden-text-secondary)', width: 50 }}>{size}</span>
-        <div style={{ width: `var(--spacing-${name})`, height: 20, background: 'var(--color-garden-brand)', borderRadius: 2 }} />
+        <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 13, color: 'var(--color-text-primary)', width: 100 }}>{name}</span>
+        <span style={{ fontFamily: 'var(--font-garden)', fontSize: 13, color: 'var(--color-text-secondary)', width: 50 }}>{size}</span>
+        <div style={{ width: `var(--spacing-${name})`, height: 20, background: 'var(--color-action-primary)', borderRadius: 2 }} />
       </div>
     ))}
 
-    <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-garden-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16, marginTop: 40 }}>Corner Radius</div>
+    <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16, marginTop: 40 }}>Corner Radius</div>
     <div style={{ display: 'flex', gap: 24 }}>
       {radii.map(({ name, size, use }) => (
         <div key={name} style={{ display: 'flex', flexDirection: 'column', gap: 8, alignItems: 'center' }}>
-          <div style={{ width: 80, height: 80, border: `2px solid var(--color-garden-brand-purple)`, borderRadius: `var(--radius-garden-${name})` }} />
-          <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 13, color: 'var(--color-garden-text-primary)' }}>{name}</span>
-          <span style={{ fontFamily: 'var(--font-garden)', fontSize: 11, color: 'var(--color-garden-text-secondary)' }}>{size}</span>
-          <span style={{ fontFamily: 'var(--font-garden)', fontSize: 10, color: 'var(--color-garden-text-secondary)', textAlign: 'center' }}>{use}</span>
+          <div style={{ width: 80, height: 80, border: `2px solid var(--color-action-secondary)`, borderRadius: `var(--radius-garden-${name})` }} />
+          <span style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 13, color: 'var(--color-text-primary)' }}>{name}</span>
+          <span style={{ fontFamily: 'var(--font-garden)', fontSize: 11, color: 'var(--color-text-secondary)' }}>{size}</span>
+          <span style={{ fontFamily: 'var(--font-garden)', fontSize: 10, color: 'var(--color-text-secondary)', textAlign: 'center' }}>{use}</span>
         </div>
       ))}
     </div>
 
-    <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-garden-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 12, marginTop: 40 }}>Backdrop Blur</div>
-    <div style={{ fontFamily: 'var(--font-garden)', fontSize: 13, color: 'var(--color-garden-text-primary)' }}>
+    <div style={{ fontFamily: 'var(--font-garden)', fontWeight: 'var(--font-weight-medium)', fontSize: 12, color: 'var(--color-text-secondary)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 12, marginTop: 40 }}>Backdrop Blur</div>
+    <div style={{ fontFamily: 'var(--font-garden)', fontSize: 13, color: 'var(--color-text-primary)' }}>
       <code>--backdrop-blur-garden: 150px</code> — always pair with surface-card on primary containers.
     </div>
   </div>
 );
 
 const meta: Meta = {
-  title: 'Tokens/Spacing & Radii',
+  title: 'Atoms/Tokens/Spacing & Radii',
   parameters: { backgrounds: { default: 'white' } },
 };
 

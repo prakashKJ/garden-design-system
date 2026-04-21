@@ -32,7 +32,7 @@ export const GardenInput: React.FC<GardenInputProps> = ({
         maxWidth,
         width: '100%',
         padding: 'var(--spacing-garden-4)',
-        backgroundColor: 'var(--color-garden-surface-card)',
+        backgroundColor: 'var(--color-bg-overlay-strong)',
         borderRadius: 'var(--radius-garden-inner)',
         border: 'none',
         boxShadow: 'none',
@@ -50,7 +50,7 @@ export const GardenInput: React.FC<GardenInputProps> = ({
           background: 'transparent',
           padding: 0,
           margin: 0,
-          color: value ? 'var(--color-garden-text-primary)' : undefined,
+          color: value ? 'var(--color-text-primary)' : undefined,
         }}
       />
     </div>

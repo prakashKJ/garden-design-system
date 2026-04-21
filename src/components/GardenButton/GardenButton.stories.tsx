@@ -3,7 +3,7 @@ import React from 'react';
 import { GardenButton } from './GardenButton';
 
 const meta: Meta<typeof GardenButton> = {
-  title: 'Components/GardenButton',
+  title: 'Atoms/Button',
   component: GardenButton,
   argTypes: {
     variant: { control: 'select', options: ['primary', 'secondary', 'tertiary', 'disabled'] },
@@ -52,7 +52,7 @@ export const FullWidth: Story = {
     <div style={{
       width: 400,
       padding: 'var(--spacing-garden-4)',
-      background: 'var(--color-garden-surface-card)',
+      background: 'var(--color-bg-overlay-strong)',
       backdropFilter: 'blur(var(--backdrop-blur-garden))',
       borderRadius: 'var(--radius-garden-outer)',
       border: 'none',
