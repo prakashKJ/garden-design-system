@@ -10,8 +10,8 @@ export interface TableColumn {
   width?: number;
   /** If true, this is a trailing icon-only action column (exempt from 64px min) */
   isIconAction?: boolean;
-  /** Render custom cell content */
-  render?: (value: any, row: Record<string, any>) => React.ReactNode;
+  /** Render custom cell content. `rowIdx` lets the cell react to striping (odd rows carry the overlay-mid fill). */
+  render?: (value: any, row: Record<string, any>, rowIdx: number) => React.ReactNode;
 }
 
 interface GardenTableProps {
@@ -46,8 +46,8 @@ export const GardenTable: React.FC<GardenTableProps> = ({
     return 64;
   };
 
-  const renderCell = (col: TableColumn, row: Record<string, any>) => {
-    if (col.render) return col.render(row[col.key], row);
+  const renderCell = (col: TableColumn, row: Record<string, any>, rowIdx: number) => {
+    if (col.render) return col.render(row[col.key], row, rowIdx);
     return <span className="garden-h4-regular">{row[col.key]}</span>;
   };
 
@@ -61,6 +61,7 @@ export const GardenTable: React.FC<GardenTableProps> = ({
         overflow: 'clip',
         border: 'none',
         boxShadow: 'none',
+        backgroundColor: 'var(--color-bg-overlay-soft)',
       }}
     >
       {/* Header row */}
@@ -72,7 +73,7 @@ export const GardenTable: React.FC<GardenTableProps> = ({
           height: rowHeight,
           paddingInline: 'var(--spacing-garden-6)',
           gap,
-          backgroundColor: 'var(--color-garden-surface-nested)',
+          backgroundColor: 'var(--color-bg-overlay-mid)',
           flexShrink: 0,
         }}
       >
@@ -109,11 +110,17 @@ export const GardenTable: React.FC<GardenTableProps> = ({
             paddingInline: 'var(--spacing-garden-6)',
             gap,
             flexShrink: 0,
-            backgroundColor: rowIdx % 2 === 1 ? 'var(--color-garden-surface-nested)' : undefined,
+            backgroundColor: rowIdx % 2 === 1 ? 'var(--color-bg-overlay-mid)' : undefined,
             transition: 'background-color 0.1s ease',
           }}
-          onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-garden-surface-nested)'; }}
-          onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = rowIdx % 2 === 1 ? 'var(--color-garden-surface-nested)' : ''; }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.backgroundColor =
+              rowIdx % 2 === 1 ? 'var(--color-bg-overlay-strong)' : 'var(--color-bg-overlay-mid)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.backgroundColor =
+              rowIdx % 2 === 1 ? 'var(--color-bg-overlay-mid)' : '';
+          }}
         >
           {columns.map((col, colIdx) => {
             const w = getColumnWidth(col);
@@ -131,7 +138,7 @@ export const GardenTable: React.FC<GardenTableProps> = ({
                   ...(isLast && !w ? { flex: 1, justifyContent: 'space-between' } : {}),
                 }}
               >
-                {renderCell(col, row)}
+                {renderCell(col, row, rowIdx)}
               </div>
             );
           })}
